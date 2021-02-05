@@ -26,7 +26,7 @@ $(document).ready(function(){
        });
 
   $("#Continue").click(function(){
-        $.post('http://zombie_escmenu/Continue', JSON.stringify({}));2
+        $.post('http://zombie_escmenu/continue', JSON.stringify({}));2
     });
   $("#discord").click(function(){
         $.post('http://zombie_escmenu/discord', JSON.stringify({}));2
@@ -39,7 +39,7 @@ $(document).ready(function(){
         $.post('http://zombie_escmenu/key', JSON.stringify({}));2
     });
   $("#offgame").click(function(){
-        $.post('http://zombie_escmenu/offgame', JSON.stringify({}));2
+        $.post('http://zombie_escmenu/offGame', JSON.stringify({}));2
     });
 
    $("#close").click(function(){

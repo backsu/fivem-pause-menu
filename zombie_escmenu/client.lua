@@ -59,7 +59,7 @@ function closediscord()
   
   
   
-RegisterNUICallback('Continue', function(data, cb)
+RegisterNUICallback('continue', function(data, cb)
     closemenu()
   	cb('ok')
 end)
