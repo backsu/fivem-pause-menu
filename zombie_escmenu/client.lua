@@ -80,7 +80,7 @@ RegisterNUICallback('key', function(data, cb)
   	cb('ok')
 end)
 
-RegisterNUICallback('offgame', function(data, cb)
+RegisterNUICallback('offGame', function(data, cb)
     TriggerServerEvent("zombie_escmenu:drop")
   	cb('ok')
 end)
