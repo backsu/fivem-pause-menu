@@ -17,13 +17,18 @@ $(document).ready(function(){
 
     window.addEventListener( 'message', function( event ) {
         var item = event.data;
-        if ( item.open == true ) {
-            $('.container').css('display','block');
-        } else if ( item.open == false ) {
-            $('.container').css("display","none");
+        if ( typeof item.open === "boolean"  ) {
+            $('.container').css('display', item.open ? "block" : "none");
+        } else if ( typeof item.opendiscord === "boolean" ) {
+            $('.discordmenu').css('display', item.opendiscord ? "block" : "none");
         }
     });
 
+    $("#discorcopy").click(function(){
+        $.post('http://zombie_escmenu/discorcopy', JSON.stringify({}));
+		fnCopyToClipboard("https://discord.gg/dUkuYGQ")
+    });
+ 
     $("#Continue").click(function(){
         $.post('http://zombie_escmenu/continue', JSON.stringify({}));
     });
@@ -44,20 +49,4 @@ $(document).ready(function(){
     $("#close").click(function(){
         $.post('http://zombie_escmenu/close', JSON.stringify({}));
     });
-})
-   
-$(document).ready(function(){
-    window.addEventListener( 'message', function( event ) {
-        var item = event.data;
-        if ( item.opendiscord == true ) {
-            $('.discordmenu').css('display','block');
-        } else if ( item.opendiscord == false ) {
-            $('.discordmenu').css("display","none");
-        }
-    });
-    $("#discorcopy").click(function(){
-        $.post('http://zombie_escmenu/discorcopy', JSON.stringify({}));
-		fnCopyToClipboard("https://discord.gg/dUkuYGQ")
-    });
- 
 })
