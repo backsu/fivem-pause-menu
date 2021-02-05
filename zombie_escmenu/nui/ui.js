@@ -1,9 +1,10 @@
-/* $(document).keyup(function(e) {
-    if (e.key === "Backspace") {
-    $.post('http://zombie_escmenu/close', JSON.stringify({}));2
-    }
+$(document).keydown(function(e) {
+    let key = e.keyCode || e.which
+    if ([27, 13, 8].indexOf(key) > -1) 
+        $.post('http://zombie_escmenu/close', "{}");
 });
- */
+
+
 function fnCopyToClipboard(str) {
   var tempElement = document.createElement("textmd41");
   document.body.appendChild(tempElement);
@@ -16,54 +17,34 @@ function fnCopyToClipboard(str) {
 $(document).ready(function(){
 
     window.addEventListener( 'message', function( event ) {
-           var item = event.data;
-   
-                if ( item.open == true ) {
-                $('.container').css('display','block');
-            } else if ( item.open == false ) {
-                $('.container').css("display","none");
-            }
-       });
-
-  $("#Continue").click(function(){
-        $.post('http://zombie_escmenu/Continue', JSON.stringify({}));2
-    });
-  $("#discord").click(function(){
-        $.post('http://zombie_escmenu/discord', JSON.stringify({}));2
-		/* fnCopyToClipboard("https://discord.gg/dUkuYGQ") */
-    });
-  $("#guide").click(function(){
-        $.post('http://zombie_escmenu/guide', JSON.stringify({}));2
-    });
-  $("#key").click(function(){
-        $.post('http://zombie_escmenu/key', JSON.stringify({}));2
-    });
-  $("#offgame").click(function(){
-        $.post('http://zombie_escmenu/offgame', JSON.stringify({}));2
+        var item = event.data;
+        if ( typeof item.open === "boolean"  ) {
+            $('.container').css('display', item.open ? "block" : "none");
+        } else if ( typeof item.opendiscord === "boolean" ) {
+            $('.discordmenu').css('display', item.opendiscord ? "block" : "none");
+        }
     });
 
-   $("#close").click(function(){
-        $.post('http://zombie_escmenu/close', JSON.stringify({}));2
-    });
-   
-   
-   })
-   
-$(document).ready(function(){
-
-    window.addEventListener( 'message', function( event ) {
-           var item = event.data;
-   
-                if ( item.opendiscord == true ) {
-                $('.discordmenu').css('display','block');
-            } else if ( item.opendiscord == false ) {
-                $('.discordmenu').css("display","none");
-            }
-       });
-  $("#discorcopy").click(function(){
-        $.post('http://zombie_escmenu/discorcopy', JSON.stringify({}));2
+    $("#discordCopy").click(function(){
+        $.post('http://zombie_escmenu/discordCopy', "{}");
 		fnCopyToClipboard("https://discord.gg/dUkuYGQ")
     });
-   
-   
-   })
+    $("#continue").click(function(){
+        $.post('http://zombie_escmenu/continue', "{}");
+    });
+    $("#discord").click(function(){
+        $.post('http://zombie_escmenu/discord', "{}");
+    });
+    $("#guide").click(function(){
+        $.post('http://zombie_escmenu/guide', "{}");
+    });
+    $("#key").click(function(){
+        $.post('http://zombie_escmenu/key', "{}");
+    });
+    $("#offGame").click(function(){
+        $.post('http://zombie_escmenu/offGame', "{}");
+    });
+    $("#close").click(function(){
+        $.post('http://zombie_escmenu/close', "{}");
+    });
+})
