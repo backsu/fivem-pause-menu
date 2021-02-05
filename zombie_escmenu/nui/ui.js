@@ -1,9 +1,10 @@
-/* $(document).keyup(function(e) {
-    if (e.key === "Backspace") {
-    $.post('http://zombie_escmenu/close', JSON.stringify({}));2
-    }
+$(document).keydown(function(e) {
+    let key = e.keyCode || e.which
+    if ([27, 13, 8].indexOf(key) > -1) 
+        $.post('http://zombie_escmenu/close', "{}");
 });
- */
+
+
 function fnCopyToClipboard(str) {
   var tempElement = document.createElement("textmd41");
   document.body.appendChild(tempElement);
