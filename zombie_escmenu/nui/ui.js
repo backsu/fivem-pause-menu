@@ -24,29 +24,26 @@ $(document).ready(function(){
         }
     });
 
-    $("#discorcopy").click(function(){
-        $.post('http://zombie_escmenu/discorcopy', JSON.stringify({}));
+    $("#discordCopy").click(function(){
+        $.post('http://zombie_escmenu/discordCopy', "{}");
 		fnCopyToClipboard("https://discord.gg/dUkuYGQ")
     });
- 
-    $("#Continue").click(function(){
-        $.post('http://zombie_escmenu/continue', JSON.stringify({}));
+    $("#continue").click(function(){
+        $.post('http://zombie_escmenu/continue', "{}");
     });
     $("#discord").click(function(){
-        $.post('http://zombie_escmenu/discord', JSON.stringify({}));
-		/* fnCopyToClipboard("https://discord.gg/dUkuYGQ") */
+        $.post('http://zombie_escmenu/discord', "{}");
     });
     $("#guide").click(function(){
-        $.post('http://zombie_escmenu/guide', JSON.stringify({}));
+        $.post('http://zombie_escmenu/guide', "{}");
     });
     $("#key").click(function(){
-        $.post('http://zombie_escmenu/key', JSON.stringify({}));
+        $.post('http://zombie_escmenu/key', "{}");
     });
-    $("#offgame").click(function(){
-        $.post('http://zombie_escmenu/offGame', JSON.stringify({}));
+    $("#offGame").click(function(){
+        $.post('http://zombie_escmenu/offGame', "{}");
     });
-
     $("#close").click(function(){
-        $.post('http://zombie_escmenu/close', JSON.stringify({}));
+        $.post('http://zombie_escmenu/close', "{}");
     });
 })
